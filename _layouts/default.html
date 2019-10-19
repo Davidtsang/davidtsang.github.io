@@ -33,8 +33,14 @@
         </header>
       </div>
     </div>
-    <div  class="container">
-{% for tag in site.categories %} 
+ 
+    <div id="main" role="main" class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+      {{ content }}
+        </div>
+        <div class="col-md-3">
+          {% for tag in site.categories %} 
   <h2 id="{{ tag[0] }}">{{ tag[0] | capitalize }}</h2>
   <ul class="post-list">
     {% assign pages_list = tag[1] %}  
@@ -47,11 +53,9 @@
     {% endfor %}
     {% assign pages_list = nil %}
     {% assign group = nil %}
-  </ul>
-{% endfor %}
-    </div>
-    <div id="main" role="main" class="container">
-      {{ content }}
+  </ul>{% endfor %}
+        </div>
+        </div>
     </div>
 
     <div class="wrapper-footer">
